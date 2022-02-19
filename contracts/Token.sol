@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 
 contract Token {
   string public name = "DJ Token";
-  string public symbol = "NDT";
+  string public symbol = "DJT";
   uint public totalSupply = 1000000;
   mapping(address => uint) balances;
 
