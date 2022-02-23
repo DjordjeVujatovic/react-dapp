@@ -1,5 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
-
+const fs = require("fs");
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
@@ -16,6 +16,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
+
+const ACCOUNT_KEY = fs.readFileSync(".env").toString().trim();
+
 module.exports = {
   solidity: "0.8.3",
   paths: {
@@ -27,7 +30,7 @@ module.exports = {
     },
     ropsten: {
       url: "https://ropsten.infura.io/v3/875c8ab56dce42e0af4d8dd3e496ebd0",
-      accounts: [`0x${process.env.ACCOUNT_KEY}`],
+      accounts: [`0x${ACCOUNT_KEY}`],
     },
   },
 };
